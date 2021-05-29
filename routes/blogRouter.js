@@ -1,3 +1,6 @@
 const router = require("express").Router();
-router.get("/", (req, res) => res.send("Hello World !"));
+const { Home } = require("../controllers/home");
+
+router.get("/", (req, res) => new Home(req, res));
+
 module.exports = router;
