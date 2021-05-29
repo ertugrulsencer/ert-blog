@@ -1,7 +1,5 @@
 const express = require("express");
+const blogRouter = require("./routes/blogRouter");
 const app = express();
-app.get("/", (req, res) => {
-  console.log("It's working !");
-  res.status(200).send("It's working !");
-});
+app.use("/", blogRouter);
 app.listen(5000, () => console.log("Server working !"));
