@@ -1,0 +1,93 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  max-width: 1280px;
+}
+.loader {
+  @include flex(center, center, column);
+  position: fixed;
+  z-index: 900;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  animation: loader-bg 2s ease infinite alternate;
+  background-image: linear-gradient(45deg, #ec77ab 0%, #7873f5 100%);
+  color: rgb(var(--light));
+  transition: all 300ms ease-in-out;
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  strong {
+    margin-bottom: 28px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: transparent;
+    letter-spacing: 2px;
+    animation: loader-text 400ms cubic-bezier(0.86, 0, 0.07, 1) infinite
+      alternate;
+    -webkit-text-stroke: 2px rgb(var(--light));
+  }
+  span {
+    line-height: 0;
+    position: absolute;
+    left: 42px;
+    bottom: 42px;
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+}
+
+header.header {
+  @include flex;
+  height: var(--header-height);
+  background: #ffffff;
+  border-bottom: 2px solid rgb(var(--dark));
+  .container {
+    @include flex(space-between);
+    a.logo {
+      color: rgb(var(--dark));
+      font-weight: 600;
+      font-size: 1.15rem;
+      strong {
+        font: inherit;
+      }
+    }
+    .menu {
+      @include flex;
+      list-style: none;
+      li:not(:last-child) {
+        margin-right: 16px;
+      }
+      a {
+        @include flex;
+        padding: 4px 6px;
+        color: rgb(var(--dark));
+        font-weight: 500;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        text-decoration: underline wavy transparent;
+        transition: all 250ms ease-in-out;
+        &:hover {
+          color: rgb(var(--dark), 0.85);
+          text-decoration-color: rgb(var(--primary));
+        }
+      }
+    }
+  }
+}
+footer.footer {
+  @include flex;
+  border-top: 5px solid rgb(var(--primary));
+  margin-top: auto;
+  background: rgb(var(--dark), 0.95);
+  text-align: center;
+  padding: 18px 0;
+  p {
+    color: rgb(var(--light));
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,19 @@
+@keyframes loader-bg {
+  0% {
+    filter: hue-rotate(40deg);
+  }
+  50% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(-40deg);
+  }
+}
+@keyframes loader-text {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-50%) scale(1.05);
+  }
+}
