@@ -18,6 +18,16 @@
   line-height: 100%;
   text-decoration: none;
 }
+mark {
+  background: transparent;
+  color: rgba(var(--dark), 0.85);
+}
+hr {
+  border-radius: 4px;
+  margin: 8px 0;
+  height: 0;
+  border: 2px solid var(var(--dark), 0.85);
+}
 html,
 body {
   @include flex(flex-start, stretch, column);

@@ -48,9 +48,25 @@ header.header {
   .container {
     @include flex(space-between);
     a.logo {
-      color: rgb(var(--dark));
-      font-weight: 600;
-      font-size: 1.15rem;
+      color: transparent;
+      background-size: 500%;
+      background-image: linear-gradient(
+        to right,
+        rgb(var(--dark)),
+        rgb(var(--primary)),
+        rgb(var(--dark))
+      );
+      background-clip: text;
+      background-clip: -webkit-text;
+      background-position: left;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: 1.5px;
+      will-change: transform, color, -webkit-text-stroke;
+      transition: all 500ms ease-in-out;
+      &:hover {
+        background-position: right;
+      }
       strong {
         font: inherit;
       }
@@ -59,25 +75,158 @@ header.header {
       @include flex;
       list-style: none;
       li:not(:last-child) {
-        margin-right: 16px;
+        margin-right: 12px;
       }
       a {
         @include flex;
+        position: relative;
         padding: 4px 6px;
         color: rgb(var(--dark));
         font-weight: 500;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         text-transform: uppercase;
-        text-decoration: underline wavy transparent;
         transition: all 250ms ease-in-out;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 4px;
+          top: 100%;
+          right: 4px;
+          height: 2px;
+          border-radius: 4px;
+          background: rgb(var(--primary));
+          transform: scaleX(0);
+          transition: transform 300ms ease-in-out;
+        }
         &:hover {
-          color: rgb(var(--dark), 0.85);
-          text-decoration-color: rgb(var(--primary));
+          color: rgb(var(--dark), 0.9);
+          &::before {
+            transform: scaleX(1);
+          }
         }
       }
     }
   }
 }
+
+.wrapper {
+  @extend .container;
+  padding: 30px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  main {
+    flex: 1;
+    border: 1px solid red;
+    p {
+      margin-bottom: 150px;
+    }
+  }
+  aside.aside {
+    position: sticky;
+    top: 30px;
+    flex-basis: 320px;
+    > .categories {
+      margin-bottom: 18px;
+      background: #ffffff;
+      padding: 14px 16px 2px;
+      border-radius: 4px;
+      border: 2px solid rgb(var(--dark));
+      header.aside-header {
+        @include flex(flex-start, center);
+        color: rgb(var(--dark));
+        i {
+          margin-right: 12px;
+        }
+        i,
+        strong {
+          color: inherit;
+        }
+      }
+      ul.categories {
+        margin: 14px 0;
+        list-style: none;
+        li:not(:last-child) a {
+          margin-bottom: 12px;
+        }
+        a {
+          @include flex(flex-start, center);
+          position: relative;
+          font-size: 0.9rem;
+          font-weight: 500;
+          padding: 8px 12px;
+          border-radius: 4px;
+          box-shadow: 2px 2px 14px -8px rgb(var(--dark)) inset,
+            -2px -2px 14px -8px rgb(var(--light));
+          color: rgb(var(--dark));
+          overflow: hidden;
+          z-index: 2;
+          transition: color 350ms ease-in-out;
+          &:hover {
+            color: rgb(var(--light));
+            &::before {
+              transform: scaleX(1);
+            }
+          }
+          &::before {
+            content: "";
+            z-index: -1;
+            transform-origin: left;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border-radius: inherit;
+            background: linear-gradient(
+              to right,
+              rgb(var(--dark)) 45%,
+              rgb(var(--primary))
+            );
+            transform: scaleX(0);
+            transition: transform 750ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          }
+        }
+      }
+    }
+    .sidebar {
+      background: #ffffff;
+      padding: 14px 16px;
+      border-radius: 4px;
+      border: 2px solid rgb(var(--dark));
+      strong {
+        font-size: 0.9rem;
+        font-weight: 500;
+        line-height: 150%;
+      }
+      .social-icons {
+        @include flex(flex-start);
+        a {
+          &:not(:last-child) {
+            margin-right: 6px;
+          }
+          @include flex;
+          border-radius: 4px;
+          border: 2px solid rgb(var(--dark));
+          background: rgb(var(--dark));
+          color: rgb(var(--light));
+          width: 32px;
+          height: 32px;
+          transition: all 300ms ease-in-out;
+          &:hover {
+            background: rgb(var(--light));
+            color: rgb(var(--dark));
+          }
+          i {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
 footer.footer {
   @include flex;
   border-top: 5px solid rgb(var(--primary));
