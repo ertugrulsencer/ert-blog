@@ -1,0 +1,105 @@
+#homePage {
+  > header {
+    @include flex(space-between, center);
+    border: 1px solid #d8d8d8;
+    margin-bottom: 14px;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgb(var(--dark));
+    strong {
+      font: inherit;
+    }
+    i {
+      font-size: 1.1rem;
+    }
+  }
+  .articles {
+    @include flex(space-between, flex-start);
+    gap: 14px;
+    flex-wrap: wrap;
+    article.article {
+      flex: calc(50% - 12px);
+      border: 1px solid #d8d8d8;
+      background: #ffffff;
+      border-radius: 5px;
+      padding: 12px 16px;
+      transition: all 300ms ease-in-out;
+      &:hover {
+        box-shadow: 0 3px 18px -10px rgb(var(--dark));
+        h3.article-title {
+          color: rgb(var(--primary));
+        }
+        p.article-desc {
+          color: rgb(var(--dark));
+        }
+        .actions {
+          .article-view,
+          .article-like,
+          .article-comment {
+            i {
+              color: rgb(var(--primary));
+            }
+          }
+        }
+      }
+      h3.article-title {
+        @include flex(space-between, center);
+        line-height: 24px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: rgb(var(--dark));
+        transition: color 300ms ease-in-out;
+        a {
+          display: block;
+          flex: 1;
+          color: inherit;
+          padding: 6px 0;
+        }
+        .article-date {
+          color: rgb(var(--dark));
+          font-size: 0.8rem;
+          font-weight: 500;
+          background: rgb(var(--light));
+          border: 1px solid #d8d8d8;
+          padding: 2px 6px;
+          border-radius: 4px;
+          box-shadow: 0 0 6px -2px #d8d8d8 inset;
+          white-space: nowrap;
+          i {
+            margin-right: 4px;
+          }
+        }
+      }
+      p.article-desc {
+        margin: 6px 0;
+        line-height: 22px;
+        font-size: 0.95rem;
+        color: rgba(var(--dark), 0.9);
+        transition: color 300ms ease-in-out;
+      }
+      .actions {
+        @include flex(space-evenly, center);
+        margin: 12px 0 4px;
+        .article-view,
+        .article-like,
+        .article-comment {
+          @include flex;
+          i {
+            margin-right: 5px;
+            color: rgb(var(--dark));
+            font-size: 1rem;
+            transition: color 300ms ease-in-out;
+          }
+          span {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: rgba(var(--dark), 0.9);
+          }
+        }
+      }
+    }
+  }
+}
