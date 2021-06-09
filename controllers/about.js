@@ -1,5 +1,11 @@
-module.exports = class About {
+const Controller = require("../core/controller");
+
+module.exports = class extends Controller {
   constructor(req, res) {
-    res.status(200).render("about.handlebars");
+    super(req, res);
+    res.status(200).render("about.handlebars", {
+      config: this.config(),
+      title: "Hakkımda",
+    });
   }
 };

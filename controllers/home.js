@@ -1,8 +1,11 @@
-module.exports = class {
+const Controller = require("../core/controller");
+
+module.exports = class extends Controller {
   constructor(req, res) {
-    const config = {
-      site_name: process.env.SITE_NAME || "ErtBlog",
-    };
-    res.status(200).render("home.handlebars", { config, title: "Ana Sayfa" });
+    super(req, res);
+    res.status(200).render("home.handlebars", {
+      config: this.config(),
+      title: "Ana Sayfa",
+    });
   }
 };
