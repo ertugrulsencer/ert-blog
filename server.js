@@ -15,6 +15,7 @@ mongoose
   })
   .catch((err) => console.error(err));
 
+app.use(express.static("upload"));
 app.use(express.static("public"));
 
 app.engine("handlebars", handlebars());
