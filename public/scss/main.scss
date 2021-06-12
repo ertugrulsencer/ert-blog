@@ -36,4 +36,6 @@ body {
   background: rgb(var(--light));
 }
 @import "./globals";
+/* Pages */
 @import "./pages/home";
+@import "./pages/about";

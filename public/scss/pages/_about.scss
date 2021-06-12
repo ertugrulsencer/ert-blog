@@ -1,0 +1,33 @@
+main#aboutPage {
+  border-radius: 6px;
+  padding: 20px 24px;
+  background: #ffffff;
+  h1.header {
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: center;
+    color: rgb(var(--dark));
+    line-height: 100%;
+    margin-bottom: 14px;
+  }
+  p.about {
+    line-height: 175%;
+    color: rgba(var(--dark), 0.9);
+    &:not(:last-of-type) {
+      margin-bottom: 14px;
+    }
+  }
+  img {
+    box-shadow: 0 2px 12px -8px rgb(var(--dark));
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    &:nth-of-type(odd) {
+      float: left;
+      margin-right: 16px;
+    }
+    &:nth-of-type(even) {
+      float: right;
+      margin-left: 16px;
+    }
+  }
+}
