@@ -98,7 +98,8 @@ header.header {
           transform: scaleX(0);
           transition: transform 300ms ease-in-out;
         }
-        &:hover {
+        &:hover,
+        &.active {
           color: rgb(var(--dark), 0.9);
           &::before {
             transform: scaleX(1);

@@ -18,7 +18,16 @@ mongoose
 app.use(express.static("upload"));
 app.use(express.static("public"));
 
-app.engine("handlebars", handlebars());
+app.engine(
+  "handlebars",
+  handlebars({
+    helpers: {
+      ifEqual(arg1, arg2, options) {
+        return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+      },
+    },
+  })
+);
 app.set("view engine", handlebars);
 
 app.use("/", blogRouter);

@@ -34,7 +34,7 @@ module.exports = class extends Controller {
                     recusandae voluptas doloremque? Temporibus veniam veritatis odio nesciunt,
                     totam eveniet.
                   </p>
-      `
+      `,
     });
   }
 };

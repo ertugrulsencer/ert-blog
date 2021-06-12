@@ -1,19 +1,25 @@
 <nav class="navigation">
   <ul class="menu">
     <li>
-      <a href="/">Blog</a>
+      <a href="/" {{#ifEqual config.now_url "/" }} class="active" {{/ifEqual}}>Blog</a>
     </li>
     <li>
-      <a href="/categories">Kategotiler</a>
+      <a
+        href="/categories"
+        {{#ifEqual config.now_url "/categories" }} class="active" {{/ifEqual}}
+      >Kategotiler</a>
     </li>
     <li>
-      <a href="/gallery">Galeri</a>
+      <a href="/gallery" {{#ifEqual config.now_url "/gallery" }} class="active" {{/ifEqual}}>Galeri</a>
     </li>
     <li>
-      <a href="/about">Hakkımda</a>
+      <a href="/about" {{#ifEqual config.now_url "/about" }} class="active" {{/ifEqual}}>Hakkımda</a>
     </li>
     <li>
-      <a href="/contact">İletişim</a>
+      <a
+        href="/contact"
+        {{#ifEqual config.now_url "/contact" }} class="active" {{/ifEqual}}
+      >İletişim</a>
     </li>
   </ul>
 </nav>
