@@ -57,7 +57,7 @@ header.header {
         rgb(var(--dark))
       );
       background-clip: text;
-      background-clip: -webkit-text;
+      -webkit-background-clip: text;
       background-position: left;
       font-weight: 700;
       font-size: 1.35rem;
