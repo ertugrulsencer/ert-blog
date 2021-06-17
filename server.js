@@ -3,6 +3,10 @@ const express = require("express");
 const blogRouter = require("./routes/blogRouter");
 const app = express();
 const handlebars = require("express-handlebars");
+const Handlebars = require("handlebars");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
 const mongoose = require("mongoose");
 
 mongoose
@@ -21,6 +25,7 @@ app.use(express.static("public"));
 app.engine(
   "handlebars",
   handlebars({
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
     helpers: {
       ifEqual(arg1, arg2, options) {
         return arg1 == arg2 ? options.fn(this) : options.inverse(this);
